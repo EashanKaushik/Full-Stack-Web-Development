@@ -2,10 +2,10 @@
 
 ## Lite Server
 
-1.  """
+1.  ```
     npm init
     npm install --save-dev lite-server
-    """
+    ```
 2.  Inside package.json add:
     """
     "scripts": {
