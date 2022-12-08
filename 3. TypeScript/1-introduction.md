@@ -7,15 +7,15 @@
     npm install --save-dev lite-server
     ```
 2.  Inside package.json add:
-    """
+    ```
     "scripts": {
     "test": "...",
     "start": "lite-server" <-
     }
-    """
-3.  """
+    ```
+3.  ```
     npm start
-    """
+    ```
 
 ## Compile using """ tsc app.ts """
 
@@ -27,7 +27,7 @@
 
 ### Type Inference
 
-"""
+```
 let temp = 5; //typescript automatically infers type number
 
 let temp2; // typescript asigns 'any' to variable and waits for usage to infer type
@@ -39,13 +39,13 @@ let temp4: number; // we can assign a type while declaring
 temp4 = 5;
 
 let temp5: string = '5'; // redundant as let temp5 = '5' automatically infers type string
-"""
+```
 
 ## Object Types
 
 - object
 
-"""
+```
 // we can explicitly define the type like this
 const number: object = {
 first_number: 5,
@@ -75,7 +75,7 @@ phrase: "Answer is: ",
 printResult: true
 }
 
-"""
+```
 
 - Arrays
 
@@ -92,14 +92,14 @@ printResult: true
 
 - any
 
-"""
+```
 let a: any[];
 let b: any;
-"""
+```
 
 - Tuple (fixed length and type array)
 
-"""
+```
 const person: {
 name: string,
 age: number,
@@ -111,7 +111,7 @@ age: 30,
 hobbies: ['cooking', 'cleaning'],
 role: [2, 'developer']
 }
-"""
+```
 
 This ensures role is a fixed length array, i.e. we need to have an array assigned to role with number and string.
 
