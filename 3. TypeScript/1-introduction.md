@@ -1,5 +1,9 @@
 # TypeScript Introduction - Install & Types
 
+JavaScript only truly provides dynamic typing - running the code to see what happens.
+
+The alternative is to use a static type system to make predictions about what code is expected before it runs.
+
 ## Lite Server
 
 1.  ```
@@ -26,6 +30,7 @@
 - number
 - string
 - boolean
+- Date
 
 ### Type Inference
 
@@ -78,6 +83,19 @@ phrase: "Answer is: ",
 printResult: true
 }
 
+```
+
+Optional properties can also be defined in objects, if we want to use this optinal propertly we ned to first check `if (object.property !== "undefined")`.
+
+```
+function printName(obj: { first: string; last?: string }) {
+  console.log(obj.last.toUpperCase());// Compile time error
+  if (obj.last !== undefined) {
+    console.log(obj.last.toUpperCase());// OK
+  }
+
+
+}
 ```
 
 ### Arrays
@@ -193,6 +211,10 @@ let temp1: 1 | 2;
 let temp2: 1 | 'as-text';
 ```
 
+### Literal Interface
+
+[Documentation - Literal Interface](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-inference)
+
 ### Function
 
 ```
@@ -269,6 +291,28 @@ u1 = 'Michael';
 ```
 
 This code is completely valid.
+
+## Interface
+
+An interface declaration is another way to name an object type:
+
+```
+interface Point {
+  x: number;
+  y: number;
+}
+
+function printCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+
+printCoord({ x: 100, y: 100 });
+```
+
+## Difference betweem Alias and Interface
+
+[TypeScript - Alias vs Interface](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces)
 
 ## Function Return Type
 

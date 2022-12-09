@@ -1,6 +1,7 @@
+"use strict";
 // Basic
 function add(n1, n2, printResult, phrase) {
-    var result = n1 + n2;
+    let result = n1 + n2;
     if (printResult) {
         console.log(phrase + result);
     }
@@ -9,7 +10,7 @@ function add(n1, n2, printResult, phrase) {
     }
 }
 function add2(number) {
-    var result = number.first_number + number.second_number;
+    let result = number.first_number + number.second_number;
     if (number.printResult) {
         console.log(number.phrase + result);
     }
@@ -17,31 +18,31 @@ function add2(number) {
         return number.phrase + result;
     }
 }
-var number = {
+const number = {
     first_number: 5,
     second_number: 1.5,
     phrase: "Answer is: ",
     printResult: true
 };
-var number2 = {
+const number2 = {
     first_number: 5,
     second_number: 1.5,
     phrase: "Answer is: ",
     printResult: true
 };
-var n1 = 5;
-var n2 = 1.5;
-var printResult = true;
-var phrase = "Answer is: ";
+const n1 = 5;
+const n2 = 1.5;
+const printResult = true;
+const phrase = "Answer is: ";
 // Arrays
-var numberArray1 = ['sports', 'hobby'];
-var numberArray2 = [1, 2];
-var numbberArray3 = ['sports', 'hobby', 1, 2];
-var numbberArray4 = [true, 'sports', 1];
-var numbberArray5 = [true, 'sports', 1, number2];
+const numberArray1 = ['sports', 'hobby'];
+const numberArray2 = [1, 2];
+const numbberArray3 = ['sports', 'hobby', 1, 2];
+const numbberArray4 = [true, 'sports', 1];
+const numbberArray5 = [true, 'sports', 1, number2];
 add(n1, n2, printResult, phrase);
 // Tuples
-var person1 = {
+const person1 = {
     name: 'hello',
     age: 30,
     hobbies: ['cooking', 'cleaning'],
@@ -54,7 +55,7 @@ var Role;
     Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
     Role[Role["AUTHOR"] = 2] = "AUTHOR";
 })(Role || (Role = {}));
-var person2 = {
+const person2 = {
     name: 'hello',
     age: 30,
     hobbies: ['cooking', 'cleaning'],
@@ -64,15 +65,15 @@ if (person2.role == Role.ADMIN) {
     console.log('Yes');
 }
 //union
-var object2;
+let object2;
 function add3(n1, n2) {
     return n1 + n2;
 }
 // Literal
-var temp;
-var temp1;
-var temp2;
-var anyVar;
+let temp;
+let temp1;
+let temp2;
+let anyVar;
 // void type
 function printResultFunction(output) {
     console.log('Output is' + output);
@@ -81,7 +82,7 @@ function printResultFunction(output) {
 function simpleAdd(n1, n2, cb) {
     cb(n1 + n2);
 }
-simpleAdd(100, 100, function (result) {
+simpleAdd(100, 100, (result) => {
     console.log(result);
     return result; // here even we can return a value even with void
 });
@@ -91,14 +92,14 @@ function voidFunction(result) {
     // return result; // this will generate an error
 }
 // Unknown type
-var userInputAny;
-var myInputAny;
+let userInputAny;
+let myInputAny;
 userInputAny = 5;
 myInputAny = userInputAny;
 userInputAny = '5';
 myInputAny = userInputAny;
-var userInput;
-var myInput;
+let userInput;
+let myInput;
 userInput = 5;
 // myInput = userInput; // this will not work
 userInput = '5';
