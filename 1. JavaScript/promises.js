@@ -1,7 +1,5 @@
-const names: Array<string> = [];
-
-// promises are meant to replace callback functions
-let p: Promise<string>= new Promise((resolve, reject) =>{
+// Basic Promise Structure
+let p= new Promise((resolve, reject) =>{
     let a = 1 + 1;
     if (a == 2){
         resolve("Success")
@@ -17,15 +15,15 @@ p.then((message) => {
     console.log(message);
 });
 
-let p1: Promise<string>= new Promise((resolve, reject) =>{
+let p1= new Promise((resolve, reject) =>{
         resolve("Success 1")
 });
 
-let p2: Promise<string>= new Promise((resolve, reject) =>{
+let p2= new Promise((resolve, reject) =>{
         resolve("Success 2")
 });
 
-let p3: Promise<string>= new Promise((resolve, reject) =>{
+let p3= new Promise((resolve, reject) =>{
         resolve("Success 3")
 });
 
@@ -46,3 +44,17 @@ Promise.race([
     p2,
     p3
 ]).then((message) => {console.log(message)}).catch((message) => {console.log(message)});
+
+
+// Promise chaining
+
+let temp = 5;
+
+let promiseChain = new Promise((resolve, reject) => {
+
+    if (temp === 5){
+        resolve("something");
+    }else{
+        reject("rejected")
+    }
+});

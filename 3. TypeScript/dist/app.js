@@ -1,98 +1,43 @@
 "use strict";
-class Department {
-    // public readonly name: string;
-    // public id: number;
-    // public employees_number: number;
-    // private employee: string[];
-    // constructor(name: string, id: number, employees_number:number, employee: string[]){
-    //     this.name = name;
-    //     this.id = id;
-    //     this.employees_number = employees_number;
-    //     this.employee = employee;
-    // }
-    // or 
-    constructor(name, id, employees_number, admin, employee) {
-        this.name = name;
-        this.id = id;
-        this.employees_number = employees_number;
-        this.admin = admin;
-        this.employee = employee;
+const names = [];
+// promises are meant to replace callback functions
+let p = new Promise((resolve, reject) => {
+    let a = 1 + 1;
+    if (a == 2) {
+        resolve("Success");
     }
-    addEmployee(employee) {
-        this.employee.push(employee);
-        return true;
+    else {
+        reject("Failed");
     }
-    showEmployee() {
-        console.log(...this.employee);
-    }
-}
-class ITDepartment extends Department {
-    constructor(name, id, employees_number, admin, employee, langauge) {
-        super(name, id, employees_number, admin, employee);
-        this.langauge = langauge;
-    }
-    addEmployee(employee) {
-        if (this.admin !== employee) {
-            this.employee.push(employee);
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    describe() {
-        console.log("Department is " + this.name);
-    }
-}
-class Accounting extends Department {
-    constructor(name, id, employees_number, admin, employee, report) {
-        super(name, id, employees_number, admin, employee);
-        this.report = report;
-    }
-    get getReport() {
-        return this.report;
-    }
-    set setReport(report) {
-        this.report = report;
-    }
-    describe() {
-        console.log("Department is " + this.name);
-    }
-}
-class NewDepartment extends Department {
-    constructor(name, id, employees_number, admin, employee, departmentCreated = undefined) {
-        super(name, id, employees_number, admin, employee);
-        this.departmentCreated = departmentCreated;
-    }
-    set setDepartmentCreated(fiscalYear) {
-        if (typeof fiscalYear === 'number') {
-            this.departmentCreated = fiscalYear;
-        }
-        else {
-            this.departmentCreated = NewDepartment.fiscalYear;
-        }
-    }
-    describe() {
-        console.log("Department is " + this.name);
-    }
-}
-NewDepartment.fiscalYear = 2022;
-class PrivateDepartment extends Department {
-    constructor(name, id, employees_number, admin, employee) {
-        super(name, id, employees_number, admin, employee);
-    }
-    describe() {
-        console.log("Department is " + this.name);
-    }
-    static getInstance(name, id, employees_number, admin, employee) {
-        if (PrivateDepartment.instanceExist) {
-            return this.instanceExist;
-        }
-        else {
-            this.instanceExist = new PrivateDepartment(name, id, employees_number, admin, employee);
-            return this.instanceExist;
-        }
-    }
-}
-let accounting = new ITDepartment('Accounting', 123, 5, 'eashan', [], 'python');
-console.log(accounting);
+});
+// then is called when promise is resolved
+p.then((message) => {
+    console.log(message);
+}).catch((message) => {
+    console.log(message);
+});
+let p1 = new Promise((resolve, reject) => {
+    resolve("Success 1");
+});
+let p2 = new Promise((resolve, reject) => {
+    resolve("Success 2");
+});
+let p3 = new Promise((resolve, reject) => {
+    resolve("Success 3");
+});
+// Promise.all -> returns an array of resolve and a single reject
+Promise.all([
+    p1,
+    p2,
+    p3
+]).then((messages) => {
+    console.log(messages);
+}).catch((message) => {
+    console.log(message);
+});
+// race returns the first success or first reject
+Promise.race([
+    p1,
+    p2,
+    p3
+]).then((message) => { console.log(message); }).catch((message) => { console.log(message); });
