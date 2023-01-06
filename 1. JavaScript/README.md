@@ -1,7 +1,9 @@
-# JavaScript
+# 1. JavaScript
 
-# Schedule 
-1. DOM
-2. AsyncJS (Promises, Async/Await)
-3. Featch API / HTTP
-4. Array Methods (map, fitler, reduce)
+1. Axios js
+2. Fetch API and HTTP
+3. Promises and Async Await
+4. Generators
+5. Call Back Functions
+6. Arrow Functions
+7. Anonymoous Functions
